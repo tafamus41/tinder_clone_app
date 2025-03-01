@@ -18,14 +18,12 @@ export const swipeRight = async (req, res) => {
 			currentUser.likes.push(likedUserId);
 			await currentUser.save();
 
-			// if the other user already liked us, it's a match, so let's update both users
 			if (likedUser.likes.includes(currentUser.id)) {
 				currentUser.matches.push(likedUserId);
 				likedUser.matches.push(currentUser.id);
 
 				await Promise.all([await currentUser.save(), await likedUser.save()]);
 
-				// send notification in real-time with socket.io
 				const connectedUsers = getConnectedUsers();
 				const io = getIO();
 
