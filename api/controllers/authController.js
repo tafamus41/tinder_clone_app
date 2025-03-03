@@ -2,7 +2,6 @@ import User from "../models/User.js";
 import jwt from "jsonwebtoken";
 
 const signToken = (id) => {
-	// jwt token
 	return jwt.sign({ id }, process.env.JWT_SECRET, {
 		expiresIn: "7d",
 	});
@@ -44,9 +43,9 @@ export const signup = async (req, res) => {
 		const token = signToken(newUser._id);
 
 		res.cookie("jwt", token, {
-			maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in milliseconds
-			httpOnly: true, // prevents XSS attacks
-			sameSite: "strict", // prevents CSRF attacks
+			maxAge: 7 * 24 * 60 * 60 * 1000, 
+			httpOnly: true, 
+			sameSite: "strict", 
 			secure: process.env.NODE_ENV === "production",
 		});
 
@@ -81,9 +80,9 @@ export const login = async (req, res) => {
 		const token = signToken(user._id);
 
 		res.cookie("jwt", token, {
-			maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in milliseconds
-			httpOnly: true, // prevents XSS attacks
-			sameSite: "strict", // prevents CSRF attacks
+			maxAge: 7 * 24 * 60 * 60 * 1000, 
+			httpOnly: true, 
+			sameSite: "strict", 
 			secure: process.env.NODE_ENV === "production",
 		});
 
