@@ -1,14 +1,17 @@
 {
   "name": "tinder_clone_app",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon api/server.js",
+		"build": "npm install && npm install --prefix client && npm run build --prefix client",
+		"start": "node api/server.js"
   },
   "keywords": [],
   "author": "",
+  "type": "module",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cloudinary": "^2.5.1",
