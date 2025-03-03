@@ -10,7 +10,6 @@ export const useMessageStore = create((set) => ({
 
 	sendMessage: async (receiverId, content) => {
 		try {
-			// mockup a message, show it in the chat immediately
 			set((state) => ({
 				messages: [
 					...state.messages,
