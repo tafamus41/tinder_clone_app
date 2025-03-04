@@ -19,7 +19,6 @@ const ProfilePage = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		updateProfile({ name, bio, age, gender, genderPreference, image });
-		console.log(typeof image);
 	};
 
 	const handleImageChange = (e) => {
@@ -33,9 +32,6 @@ const ProfilePage = () => {
 			reader.readAsDataURL(file);
 		}
 	};
-
-	console.log(image)
-
 	return (
 		<div className='min-h-screen bg-gray-50 flex flex-col'>
 			<Header />
