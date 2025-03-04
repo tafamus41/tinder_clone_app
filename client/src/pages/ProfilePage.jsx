@@ -19,6 +19,7 @@ const ProfilePage = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		updateProfile({ name, bio, age, gender, genderPreference, image });
+		console.log(typeof image);
 	};
 
 	const handleImageChange = (e) => {
